@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "8d71c5d4-e528-44ef-bc1d-38a341cc28b9",
+		"name": "ECNApp API Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Lists all the users in the database in a JSON string"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/users/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"7"
+					]
+				},
+				"description": "Deletes a user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/users/7",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"admin\",\n\t\"email\":\"admin@ecs.com.au\",\n\t\"fname\":\"Admin\",\n\t\"lname\":\"Admin\",\n\t\"password\":\"Admin123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"6"
+					]
+				},
+				"description": "Updates an existing user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"testing\",\r\n    \"password\":\"blahnn567\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "user login"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userid\":0,\n\t\"username\":\"zerouserid\",\n\t\"email\":\"zero@id\",\n\t\"fname\":\"zero\",\n\t\"lname\":\"fun\",\n\t\"password\":\"zeru789\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "creates a new user"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

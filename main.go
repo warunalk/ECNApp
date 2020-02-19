@@ -22,6 +22,7 @@ type User struct {
 	Lname          string
 	Email          string
 	Password       string
+	IsAdmin        bool
 	CreatedDate    time.Time
 	LastModDate    time.Time
 	LastLoggedDate time.Time
@@ -52,7 +53,7 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 	var users []User
 	for result.Next() {
 		var user User
-		err := result.Scan(&user.Userid, &user.Username, &user.Email, &user.Fname, &user.Lname, &user.Password, &user.CreatedDate, &user.LastModDate, &user.LastLoggedDate)
+		err := result.Scan(&user.Userid, &user.Username, &user.Email, &user.Fname, &user.Lname, &user.Password, &user.CreatedDate, &user.LastModDate, &user.LastLoggedDate, &user.IsAdmin)
 		if err != nil {
 			panic(err.Error())
 		}
@@ -75,7 +76,7 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 	defer result.Close()
 	for result.Next() {
 		var user User
-		err := result.Scan(&user.Userid, &user.Username, &user.Email, &user.Fname, &user.Lname, &user.Password, &user.CreatedDate, &user.LastModDate, &user.LastLoggedDate)
+		err := result.Scan(&user.Userid, &user.Username, &user.Email, &user.Fname, &user.Lname, &user.Password, &user.CreatedDate, &user.LastModDate, &user.LastLoggedDate, &user.IsAdmin)
 		if err != nil {
 			panic(err.Error())
 		}
@@ -191,7 +192,7 @@ func userAuth(w http.ResponseWriter, r *http.Request) {
 	defer result.Close()
 	for result.Next() {
 		var user User
-		err := result.Scan(&user.Userid, &user.Username, &user.Email, &user.Fname, &user.Lname, &user.Password, &user.CreatedDate, &user.LastModDate, &user.LastLoggedDate)
+		err := result.Scan(&user.Userid, &user.Username, &user.Email, &user.Fname, &user.Lname, &user.Password, &user.CreatedDate, &user.LastModDate, &user.LastLoggedDate, &user.IsAdmin)
 		if err != nil {
 			panic(err.Error())
 		}
